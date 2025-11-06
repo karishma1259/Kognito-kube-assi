@@ -1,0 +1,30 @@
+import React from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import MenuCard from './components/MenuCard'
+import Features from './components/Features'
+import Footer from './components/Footer'
+
+export default function App() {
+  const menus = [
+    { id:1, title:"Veg Thali", desc:"Home style veg meals", price:"₹159", img:"/src/assets/placeholder-food.jpg" },
+    { id:2, title:"Non-Veg Thali", desc:"Protein rich tiffin", price:"₹199", img:"/src/assets/placeholder-food.jpg" },
+    { id:3, title:"Special Combo", desc:"Chef special combo", price:"₹249", img:"/src/assets/placeholder-food.jpg" }
+  ]
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <section className="container py-12">
+          <h2 className="text-2xl font-bold mb-6">Popular Tiffins</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {menus.map(m => <MenuCard key={m.id} {...m} />)}
+          </div>
+        </section>
+        <Features />
+      </main>
+      <Footer />
+    </div>
+  )
+}
